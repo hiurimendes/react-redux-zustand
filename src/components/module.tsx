@@ -24,9 +24,9 @@ export function Module({ moduleIndex, title, amountOfLessons }: ModuleProps) {
     return state.player.course.modules[moduleIndex].lessons
   })
   return (
-    <Collapsible.Root className='group'>
+    <Collapsible.Root className='group' defaultOpen={moduleIndex === 0}>
       <Collapsible.Trigger className="flex w-full items-center gap-3 bg-zinc-800 p-4">
-        <div className="flex size-8 rounded-full items-center justify-center bg-zinc-950 text-xs">
+        <div className="flex size-8 rounded-full border-2 border-zinc-500 items-center justify-center bg-zinc-950 text-xs font-bold">
           {moduleIndex + 1}
         </div>
 
@@ -38,7 +38,7 @@ export function Module({ moduleIndex, title, amountOfLessons }: ModuleProps) {
         <ChevronDown className="size-5 ml-auto text-zinc-400 group-data-[state=open]:rotate-180 transition-transform" />
       </Collapsible.Trigger>
       <Collapsible.Content>
-        <nav className="relative flex flex-col gap-4 p-6">
+        <nav className="flex flex-col gap-1 p-2">
           {lessons.map((lesson, lessonIndex) => {
             const isCurrent = currentModuleIndex === moduleIndex &&
               currentLessonIndex === lessonIndex

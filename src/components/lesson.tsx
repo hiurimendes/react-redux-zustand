@@ -10,21 +10,21 @@ interface LessonProps {
 export function Lesson({ title, duration, onPlay, isCurrent = false }: LessonProps) {
 
   return (
-    <button 
-      onClick={onPlay} 
-      data-active={isCurrent}
-      disabled={isCurrent}
-      className="group flex items-center gap-3 text-sm text-zinc-400 data-[active=true]:text-emerald-400 hover:enabled:text-zinc-100"
-    >
-      { isCurrent ? ( 
-        <PlayCircle className="size-4 text-emerald-400" />
-      ): (
-        <Video className="size-4 text-zinc-500 hover:enabled:text-zinc-100"/>
-      )}
-      <span>{title}</span>
-      <span className="ml-auto font-mono text-xs text-zinc-500 group-data-[active=true]:text-emerald-400">
-        {duration}
-      </span>
-    </button>
+      <button 
+        onClick={onPlay} 
+        data-active={isCurrent}
+        disabled={isCurrent}
+        className="group relative flex p-2 rounded-md hover:bg-zinc-800 transition-all items-center gap-3 text-sm text-zinc-400 data-[active=true]:text-emerald-400 hover:enabled:text-zinc-100"
+      >
+        { isCurrent ? ( 
+          <PlayCircle className="size-4 text-emerald-400" />
+        ): (
+          <Video className="size-4 text-zinc-500 hover:enabled:text-zinc-100"/>
+        )}
+        <span>{title}</span>
+        <span className="ml-auto font-mono text-xs text-zinc-500 group-data-[active=true]:text-emerald-400">
+          {duration}
+        </span>
+      </button>
   )
 }
